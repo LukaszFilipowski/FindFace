@@ -19,11 +19,58 @@
         tools:layout_editor_absoluteX="8dp" />
 
     <Button
-        android:id="@+id/changeCamera"
+        android:id="@+id/showMenuBtn"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:onClick="showHideMenu"
+        android:text="+"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/changeCameraBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/showMenuBtn"
+        android:onClick="changeCameraMode"
+        android:text="Zmiana kamery"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/faceDetectorBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/moveDetectorBtn"
+        android:text="Face Detect"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/bwModeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/faceDetectorBtn"
+        android:text="BW MODE"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/moveDetectorBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:text="Zmiana kamery" />
+        android:layout_below="@+id/showMenuBtn"
+        android:text="Wykrywanie ruchu"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/lightDetectorBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/changeCameraBtn"
+        android:layout_toStartOf="@+id/moveDetectorBtn"
+        android:text="Light Detector"
+        android:visibility="visible" />
 
 </RelativeLayout>
