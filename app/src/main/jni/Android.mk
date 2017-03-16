@@ -12,7 +12,7 @@ LOCAL_PATH := $(call my-dir)
 	LOCAL_SRC_FILES := com_example_ukasz_findface_OpenCvCamera.cpp
 
 	LOCAL_LDLIBS += -llog
-	LOCAL_MODULE := MyLibs
+	LOCAL_MODULE := OpenCvLibs
 
 
 	include $(BUILD_SHARED_LIBRARY)

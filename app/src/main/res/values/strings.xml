@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FindFace</string>
+    <string name="bwmode">BW MODE</string>
+    <string name="normalMode">Tryb normalny</string>
+    <string name="facedetect">Face detect</string>
+    <string name="lightdetect">Light detector</string>
+    <string name="movedetect">Wykrywanie ruchu</string>
+    <string name="chanceCamera">Zmiana kamery</string>
+
 </resources>
