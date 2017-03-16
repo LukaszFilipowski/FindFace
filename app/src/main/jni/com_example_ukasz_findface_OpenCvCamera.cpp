@@ -17,6 +17,30 @@ JNIEXPORT void JNICALL Java_com_example_ukasz_findface_OpenCvCamera_blackWhiteMo
     blackWhiteMode(image);
 }
 
+JNIEXPORT void JNICALL Java_com_example_ukasz_findface_OpenCvCamera_moveDetector
+(JNIEnv *, jclass, jlong camRgba) {
+    Mat& image = *(Mat*)camRgba;
+
+
+    detectMove(image);
+}
+
+JNIEXPORT void JNICALL Java_com_example_ukasz_findface_OpenCvCamera_moveDetectorBetter
+(JNIEnv *, jclass, jlong camRgba) {
+Mat& image = *(Mat*)camRgba;
+
+
+detectMoveBetter(image);
+}
+
+JNIEXPORT void JNICALL Java_com_example_ukasz_findface_OpenCvCamera_lightDetector
+(JNIEnv *, jclass, jlong camRgba) {
+    Mat& image = *(Mat*)camRgba;
+
+
+    detectLight(image);
+}
+
 void blackWhiteMode(Mat& image) {
     cvtColor(image, image, COLOR_BGR2GRAY);
 }
@@ -58,6 +82,38 @@ void detectFace(Mat& frame) {
 //        }
 //    }
 
+
+}
+
+Mat lastImage; // poprzednia klatka
+bool first = true;
+void detectMove(Mat& image) {
+    cvtColor(image, image, COLOR_BGR2GRAY);
+
+    if(first) {
+        first = false;
+        lastImage = image.clone();
+    } else {
+        absdiff(image, lastImage, image);
+        lastImage = image.clone();
+    }
+
+}
+
+bool frst = true;
+Mat firstImage; // pierrwsza klatka
+void detectMoveBetter(Mat& image) {
+    cvtColor(image, image, COLOR_BGR2GRAY);
+
+    if(frst) {
+        frst = false;
+        firstImage = image.clone();
+    } else {
+        absdiff(image, firstImage, image);
+    }
+}
+
+void detectLight(Mat& image) {
 
 }
 
