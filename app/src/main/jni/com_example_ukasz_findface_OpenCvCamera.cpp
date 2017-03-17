@@ -114,6 +114,32 @@ void detectMoveBetter(Mat& image) {
 }
 
 void detectLight(Mat& image) {
+    Mat img = image.clone();
+   // cvtColor(image, hsv, CV_BGR2HSV);
+
+    int cols = img.size().width;
+    int rows = img.size().height;
+
+    for(int i=0; i<rows; i++) {
+        for(int l=0; l<cols; l++) {
+            Vec3f color = img.at<Vec3b>(i,l);
+          //  image.data[image.channels()*(image.rows*i + l)];
+
+            if(color[0] > 230 && color[1] > 235 && color[2] > 218) {
+              //  img.at<uchar>(i, l) = 128;
+               // image.at<Vec3b>(i,l)[0] = 0;
+                color[0] = 0;
+                color[1] = 0;
+                color[2] = 255;
+                img.at<Vec3b>(i,l) = color;
+
+            }
+
+        }
+    }
+
+    image = img.clone();
+
 
 }
 
